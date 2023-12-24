@@ -2,11 +2,19 @@ import {config} from "dotenv";
 config();
 
 export const {
-    PORT
+    PORT,
+    POSTGRES_NAME,
+    POSTGRES_USER,
+    POSTGRES_PASSWORD,
+    POSTGRES_URL
 } = process.env as { [key: string]: string };
 
 const required = {
-    PORT: PORT || "3000"
+    PORT: PORT || "3000",
+    POSTGRES_NAME,
+    POSTGRES_USER,
+    POSTGRES_PASSWORD,
+    POSTGRES_URL
 }
 
 for(let key in required){

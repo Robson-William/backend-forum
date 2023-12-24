@@ -4,7 +4,7 @@
   "description": "Backend repository for forum website.",
   "main": "index.ts",
   "scripts": {
-    "start": "ts-node-dev --respawn --transpile-only src/index.ts",
+    "start": "ts-node-dev --respawn --transpile-only --quiet --poll src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Robson",
