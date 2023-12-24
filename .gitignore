@@ -1,0 +1,14 @@
+# Modules folder
+node_modules
+
+# Environment variables
+.env
+
+# Build folder
+build
+
+# Image files
+*.jpg
+*.jpeg
+*.webp
+*.png
