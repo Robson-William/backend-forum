@@ -1,6 +1,7 @@
-import { relations } from "drizzle-orm";
 import { serial, integer, varchar, text, timestamp, index, pgTable } from "drizzle-orm/pg-core";
+import { relations } from "drizzle-orm";
 import { boards } from "../boards/Boards";
+import { comments } from "../comments/comments";
 
 export const users = pgTable('users', {
     id: serial("id").primaryKey(),
@@ -8,7 +9,7 @@ export const users = pgTable('users', {
     username: varchar("username", {length: 20}),
     email: varchar("email", {length: 100}),
     picture: text("picture"),
-    timestamp: timestamp("timestamp", {withTimezone: true}),
+    createdAt: timestamp("created_at", {withTimezone: true}),
     pontuation: integer("pontuation").default(0)
 }, (table) => {
     return {
@@ -18,5 +19,6 @@ export const users = pgTable('users', {
 })
 
 export const usersRelation = relations(users, ({many}) => ({
-    boards: many(boards)
+    boards: many(boards),
+    comments: many(comments)
 }))
