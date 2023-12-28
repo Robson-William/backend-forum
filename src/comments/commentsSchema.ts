@@ -1,7 +1,7 @@
 import {serial, integer, text, timestamp, pgTable } from "drizzle-orm/pg-core";
 import { relations } from "drizzle-orm";
-import { users } from "../users/users";
-import { boards } from "../boards/Boards";
+import { users } from "../users/usersSchema";
+import { boards } from "../boards/boardsSchema";
 
 export const comments = pgTable("comments", {
     id: serial("id").primaryKey(),
