@@ -1,4 +1,4 @@
-import { eq } from "drizzle-orm";
+import { eq, like } from "drizzle-orm";
 import { db } from "../config/database";
 import { User, users } from "./usersSchema";
 
@@ -89,4 +89,14 @@ async function searchByUsername(username:string){
     }
 }
 
-export {createUser, updateUser, addPontuation, deleteUser, searchAllUsers, searchById, searchByUsername};
+async function searchByText(filter:string){
+    try {
+        const filteredUser = await db.select().from(users).where(like(users.username, `%${filter}%`));
+
+        return filteredUser;
+    } catch(err){
+        console.log("Error at searchByUsername", err);
+    }
+}
+
+export {createUser, updateUser, addPontuation, deleteUser, searchAllUsers, searchById, searchByUsername, searchByText};
