@@ -15,7 +15,7 @@ export const boards = pgTable('boards', {
     }
 })
 
-export type User = typeof users.$inferSelect; 
+export type Board = typeof boards.$inferSelect; 
 
 export const boardsRelations = relations(boards, ({one, many}) => ({
     author: one(users, {fields: [boards.authorId], references: [users.id]}),
