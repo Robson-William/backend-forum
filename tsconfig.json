@@ -5,8 +5,8 @@
     "target": "es2016",
     "lib": ["es6"],
     "allowJs": true,
-    "rootDir": "src",
-    "outDir": "build",
+    "rootDir": ".",
+    "outDir": ".",
     "module": "commonjs",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
@@ -15,6 +15,8 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noImplicitAny": true,
-    "resolveJsonModule": true
-  }
+    "resolveJsonModule": true,
+    "composite": true
+  },
+  "files": ["package.json"]
 }
