@@ -11,6 +11,8 @@ export const comments = pgTable("comments", {
     boardId: integer("board").notNull()
 })
 
+export type Board = typeof boards.$inferSelect; 
+
 export const commentsRelations = relations(comments, ({one}) => ({
     author: one(users, {fields: [comments.authorId], references: [users.id]}),
     board: one(boards, {fields: [comments.boardId], references: [boards.id]})
