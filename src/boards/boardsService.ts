@@ -67,7 +67,7 @@ async function searchBoardById({data}:Params){
 async function searchBoardByText(filter:string){
     try {
         const filteredBoards = await db.select().from(boards)
-        .where(like(boards.title, filter) || like(boards.content, filter));
+        .where(like(boards.title, `%${filter}%`) || like(boards.content, `%${filter}%`));
 
         return filteredBoards;
     } catch(err){
